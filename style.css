@@ -1,0 +1,81 @@
+html,
+body {
+  background-color: #b0a8b9;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  width: 100%;
+}
+
+#CalculatorBackground {
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  background-color: #4b4453;
+  height: 500px;
+  width: 400px;
+  border-radius: 15px;
+}
+
+#NumbersArea {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: 1.5fr 1fr 1fr 1fr 1fr;
+  height: 485px;
+  width: 390px;
+  margin: 0px 0px 10px 0px;
+  gap: 4px;
+}
+
+.NumberButton {
+  font-family: "Comfortaa", sans-serif;
+  font-size: clamp(2rem, 4vw, 3.5rem);
+  font-weight: 700;
+  line-height: 1.2;
+  letter-spacing: 1px;
+  color: #fff;
+  background-color: #ff8066;
+  border: none;
+  border-radius: 5px;
+  padding: 0px;
+}
+
+.NumberButtonTop {
+  font-family: "Comfortaa", sans-serif;
+  font-size: clamp(2rem, 4vw, 3.5rem);
+  font-weight: 700;
+  line-height: 1.2;
+  letter-spacing: 1px;
+  color: #fff;
+  background-color: #c34a36;
+  border: none;
+  border-radius: 5px;
+  padding: 0px;
+}
+
+.NumberButtonFullWidth {
+  background-color: #ff8066;
+  border: none;
+  border-radius: 5px;
+  padding: 0px;
+}
+
+.OperatorButton {
+  background-color: #c34a36;
+  border: none;
+  border-radius: 5px;
+  padding: 0px;
+}
+
+.AnswerArea {
+  display: flex;
+  grid-column: 1 / 5;
+  background-color: #232b2b;
+  border-radius: 15px;
+  font-family: Orbitron, sans-serif;
+  color: #fff;
+  align-items: center;
+  justify-content: flex-end;
+  font-size: 25px;
+}

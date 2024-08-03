@@ -1,11 +1,91 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <link rel = "stylesheet" href = "style.css">
+    <link href='https://fonts.googleapis.com/css?family=Orbitron' rel='stylesheet' type='text/css'>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Testing Website </title>
 </head>
 <body>
-    <h1> Hello! I'm just testing out how to push </h1>
+    <div id="CalculatorBackground">
+        <div id="NumbersArea">
+          <div class="AnswerArea"> </div>
+          <button class="NumberButtonTop" onclick="clearAnswerPad()"> C </button>
+          <button class="NumberButtonTop" onclick="changerOperatorToOp('*')"> * </button>
+          <button class="NumberButtonTop" onclick="changerOperatorToOp('/')"> / </button>
+          <button class="NumberButtonTop" onclick="changerOperatorToOp('+')"> + </button>
+          <button class="NumberButton" onclick="changeToN(7)"> 7 </button>
+          <button class="NumberButton" onclick="changeToN(8)"> 8 </button>
+          <button class="NumberButton" onclick="changeToN(9)"> 9 </button>
+          <button class="NumberButtonTop" onclick="changerOperatorToOp('-')"> - </button>
+          <button class="NumberButton" onclick="changeToN(4)"> 4 </button>
+          <button class="NumberButton" onclick="changeToN(5)"> 5 </button>
+          <button class="NumberButton" onclick="changeToN(6)"> 6 </button>
+          <button class="NumberButtonTop" onclick="operate()"> = </button>
+          <button class="NumberButton" onclick="changeToN(1)"> 1 </button>
+          <button class="NumberButton" onclick="changeToN(2)"> 2 </button>
+          <button class="NumberButton" onclick="changeToN(3)"> 3 </button>
+          <button class="NumberButton" onclick="changeToN(0)"> 0 </button>
+        </div>
+      </div>
+      <script> 
+        let numberone = 0;
+let numbertwo = 0;
+let operator;
+
+let answerNumbers = document.getElementsByClassName("AnswerArea")[0];
+
+function changeToN(n) {
+  if (operator != null) {
+    numbertwo = numbertwo * 10 + n;
+    answerNumbers.innerHTML += n;
+  } else {
+    numberone = numberone * 10 + n;
+    answerNumbers.innerHTML += n;
+  }
+  console.log(`numberone: ${numberone}, numbertwo: ${numbertwo}`);
+}
+
+function clearAnswerPad() {
+  answerNumbers.innerHTML = "";
+  numberone = 0;
+  numbertwo = 0;
+  operator = null;
+  console.log(`Cleared: numberone: ${numberone}, numbertwo: ${numbertwo}`);
+}
+
+function changerOperatorToOp(Op) {
+  console.log(Op);
+  operator = Op;
+  answerNumbers.innerHTML += ` ${Op} `;
+}
+
+function operate() {
+  if (operator == "*") {
+    answerNumbers.innerHTML = numberone * numbertwo;
+    console.log(numberone + " * " + numbertwo);
+    numberone = numberone * numbertwo;
+  } else if (operator == "/") {
+    answerNumbers.innerHTML = numberone / numbertwo;
+    console.log(numberone + " / " + numbertwo);
+    numberone = numberone / numbertwo;
+  } else if (operator == "+") {
+    answerNumbers.innerHTML = numberone + numbertwo;
+    console.log(numberone + " + " + numbertwo);
+    numberone = numberone + numbertwo;
+  } else {
+    answerNumbers.innerHTML = numberone - numbertwo;
+    console.log(numberone + " - " + numbertwo);
+    numberone = numberone - numbertwo;
+  }
+  numbertwo = 0;
+  operator = null;
+  console.log(numberone);
+  console.log(numbertwo);
+  console.log(operator);
+}
+
+      </script>
 </body>
 </html>
